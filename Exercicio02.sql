@@ -32,5 +32,11 @@ INSERT INTO carros(id_pessoas, marca, modelo, lancamento, fabricacao,motor,cor, 
 ((SELECT id FROM pessoas WHERE nome = 'Samuel Faria'),'Renault','Clio','1997','1996','1.0 8v','Verde',5500.00),
 ((SELECT id FROM pessoas WHERE nome = 'Florêncio Robalo'),'Volkswagen','Golf','1994','1994','2.0 120cv','Azul',17000.00)
 
-SELECT * FROM  carros
+SELECT pessoas.nome, carros.modelo FROM pessoas
+JOIN carros ON ( pessoas.id = carros.id_pessoas)
 
+
+
+SELECT pessoas.nome, carros.modelo FROM pessoas
+JOIN carros ON ( pessoas.id = carros.id_pessoas)
+WHERE nome LIKE '%Samuel%'

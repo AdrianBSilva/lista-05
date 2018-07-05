@@ -42,4 +42,17 @@ INSERT INTO caracteristicas(id_alunos, caracteristica) VALUES
 ((SELECT id FROM alunos WHERE nome = 'Sophia'),'Sensível')
 
 
-SELECT * FROM caracteristicas
+SELECT alunos.nome, caracteristicas.caracteristica FROM caracteristicas
+JOIN alunos ON (alunos.id = caracteristicas.id_alunos)
+
+SELECT COUNT(alunos.nome) 'Altruístas' FROM alunos
+JOIN caracteristicas ON (caracteristicas.id_alunos = alunos.id)
+WHERE caracteristicas.caracteristica  = 'Altruísta'
+
+SELECT caracteristicas.caracteristica, COUNT(alunos.nome) 'N° de ALUNOS' FROM caracteristicas
+JOIN alunos ON (alunos.id = caracteristicas.id_alunos)
+GROUP BY caracteristicas.caracteristica
+
+SELECT alunos.nome, caracteristicas.caracteristica FROM alunos
+JOIN caracteristicas ON (caracteristicas.id_alunos = alunos.id)
+WHERE nome = 'SOPHIA'
